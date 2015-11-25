@@ -1,5 +1,10 @@
 import {bootstrap, Component, FORM_DIRECTIVES} from 'angular2/angular2';
 
+class Hero {
+    id: number;
+    name: string;
+}
+
 @Component({
     selector: 'my-app',
     template: `
@@ -20,11 +25,6 @@ class AppComponent {
         id: 1,
         name: 'Windstorm'
     };
-}
-
-class Hero {
-    id: number;
-    name: string;
 }
 
 bootstrap(AppComponent);
