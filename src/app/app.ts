@@ -1,4 +1,4 @@
-import {bootstrap, Component, FORM_DIRECTIVES, NgFor} from 'angular2/angular2';
+import {bootstrap, Component, FORM_DIRECTIVES, NgFor, NgIf} from 'angular2/angular2';
 
 class Hero {
     id: number;
@@ -11,15 +11,17 @@ class Hero {
         <h1>{{title}}</h1>
         <h2>My Heroes</h2>
         <ul class="heroes">
-            <li *ng-for="#hero of heroes">
+            <li *ng-for="#hero of heroes" (click)="onSelect(hero)">
                 <span class="badge">{{hero.id}}</span> {{hero.name}}
             </li>
         </ul>
-        <h2>{{hero.name}} details!</h2>
-        <div><label>id: </label>{{hero.id}}</div>
-        <div>
-            <label>name: </label>
-            <div><input [(ng-model)]="hero.name" placeholder="name"></div>
+        <div *ng-if="selectedHero">
+            <h2>{{selectedHero.name}} details!</h2>
+            <div><label>id: </label>{{selectedHero.id}}</div>
+            <div>
+                <label>name: </label>
+                <div><input [(ng-model)]="selectedHero.name" placeholder="name"></div>
+            </div>
         </div>
     `,
     styles: [`
@@ -38,16 +40,14 @@ class Hero {
         }
         .selected { background-color: #EEE; color: #369; }
     `],
-    directives: [FORM_DIRECTIVES, NgFor]
+    directives: [FORM_DIRECTIVES, NgFor, NgIf]
 })
 
 class AppComponent {
     public title = 'Tour of Heroes';
-    public hero: Hero = {
-        id: 1,
-        name: 'Windstorm'
-    };
     public heroes = HEROES;
+    public selectedHero: Hero;
+    onSelect(hero: Hero) { this.selectedHero = hero; }
 }
 
 bootstrap(AppComponent);
