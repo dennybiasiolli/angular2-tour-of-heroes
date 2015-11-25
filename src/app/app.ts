@@ -1,4 +1,4 @@
-import {bootstrap, Component, FORM_DIRECTIVES, NgClass, NgFor, NgIf} from 'angular2/angular2';
+import {bootstrap, Component, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
 
 class Hero {
     id: number;
@@ -42,7 +42,7 @@ class Hero {
         }
         .selected { background-color: #EEE; color: #369; }
     `],
-    directives: [FORM_DIRECTIVES, NgClass, NgFor, NgIf]
+    directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 
 class AppComponent {
