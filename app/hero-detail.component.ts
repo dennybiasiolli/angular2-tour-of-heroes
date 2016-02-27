@@ -9,7 +9,7 @@ import { HeroService } from './hero.service';
   styleUrls: ['app/styles/hero-detail.css'],
   inputs: ['hero']
 })
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
   hero: Hero;
   constructor(
     private _heroService: HeroService,
