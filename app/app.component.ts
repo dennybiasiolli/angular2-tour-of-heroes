@@ -1,40 +1,6 @@
-import { Component, OnInit } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
-import { HeroesComponent } from './heroes.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroService } from './hero.service';
-import { DashboardComponent } from './dashboard.component';
-
+import { Component } from '@angular/core';
 @Component({
-  selector: 'my-app',
-  templateUrl: 'app/templates/app.tpl.html',
-  styleUrls: ['app/styles/app.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS, HeroService]
+    selector: 'my-app',
+    template: '<h1>My First Angular 2 App</h1>'
 })
-
-@RouteConfig([
-  {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
-  },
-  {
-    path: '/detail/:id',
-    name: 'HeroDetail',
-    component: HeroDetailComponent
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: DashboardComponent,
-    useAsDefault: true
-  }
-])
-
-export class AppComponent implements OnInit {
-  public title: string = 'Tour of Heroes';
-  constructor() { }
-  ngOnInit() {
-  }
-}
+export class AppComponent { }
